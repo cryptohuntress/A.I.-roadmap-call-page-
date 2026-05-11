@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Roadmap Call — Discover Your AI-Powered Business Path</title>
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-pale: #F5E6B8;
+    --black: #080808;
+    --black-soft: #111111;
+    --black-card: #141414;
+    --black-border: #1E1E1E;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+background: #080808 !important;
+color: #FFFFFF;
+font-family: ‘Helvetica Neue’, Arial, sans-serif;
+overflow-x: hidden;
+}
+
+/* ── STICKY BAR ── */
+.sticky-bar {
+position: fixed;
+bottom: 0; left: 0; right: 0;
+background: rgba(8,8,8,0.97);
+border-top: 1px solid rgba(201,168,76,0.3);
+padding: 1rem 2rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+z-index: 100;
+transform: translateY(100%);
+transition: transform 0.4s ease;
+}
+.sticky-bar.visible { transform: translateY(0); }
+.sticky-bar p { font-size: 0.85rem; font-weight: 600; }
+.sticky-bar p span { color: var(–gold); }
+.cta-sticky {
+background: linear-gradient(135deg, var(–gold), var(–gold-light));
+color: #080808;
+font-size: 0.8rem;
+font-weight: 800;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 0.8rem 2rem;
+text-decoration: none;
+white-space: nowrap;
+}
+
+/* ── HERO ── */
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 6rem 2rem 4rem;
+background: #080808 !important;
+position: relative;
+}
+
+.hero::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 65%);
+pointer-events: none;
+}
+
+.eyebrow {
+font-size: 0.7rem;
+font-weight: 700;
+letter-spacing: 0.35em;
+color: var(–gold);
+text-transform: uppercase;
+margin-bottom: 2rem;
+}
+
+.hero h1 {
+font-family: Georgia, ‘Times New Roman’, serif;
+font-size: clamp(2.8rem, 7vw, 6rem);
+font-weight: 900;
+line-height: 1.05;
+letter-spacing: -0.02em;
+margin-bottom: 1.5rem;
+color: #FFFFFF;
+}
+
+.hero h1 .gold {
+color: var(–gold);
+}
+
+.hero-sub {
+font-size: clamp(1rem, 2.5vw, 1.35rem);
+font-weight: 400;
+color: #CCCCCC;
+max-width: 640px;
+line-height: 1.8;
+margin-bottom: 1rem;
+}
+
+.hero-sub strong { color: #FFFFFF; font-weight: 700; }
+
+.price-tag {
+display: inline-block;
+border: 1px solid rgba(201,168,76,0.4);
+padding: 0.6rem 1.5rem;
+margin-bottom: 2.5rem;
+font-size: 0.8rem;
+letter-spacing: 0.15em;
+color: var(–gold);
+font-weight: 600;
+}
+
+.cta-primary {
+display: inline-block;
+background: linear-gradient(135deg, var(–gold) 0%, var(–gold-light) 50%, var(–gold) 100%);
+background-size: 200% 200%;
+color: #080808;
+font-size: 0.95rem;
+font-weight: 800;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+padding: 1.2rem 3rem;
+text-decoration: none;
+transition: all 0.3s ease;
+animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+.cta-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 40px rgba(201,168,76,0.4);
+}
+
+.hero-note {
+margin-top: 1rem;
+font-size: 0.75rem;
+color: rgba(201,168,76,0.6);
+letter-spacing: 0.1em;
+}
+
+/* ── SECTIONS ── */
+section { padding: 5rem 2rem; }
+.container { max-width: 900px; margin: 0 auto; }
+
+.section-label {
+font-size: 0.65rem;
+font-weight: 700;
+letter-spacing: 0.4em;
+color: var(–gold);
+text-transform: uppercase;
+text-align: center;
+margin-bottom: 1rem;
+}
+
+.section-title {
+font-family: Georgia, ‘Times New Roman’, serif;
+font-size: clamp(2rem, 5vw, 3.2rem);
+font-weight: 700;
+text-align: center;
+line-height: 1.2;
+margin-bottom: 1.5rem;
+color: #FFFFFF;
+}
+
+.section-title .gold { color: var(–gold); }
+
+.divider {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+margin: 2.5rem 0;
+}
+.divider::before, .divider::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold), transparent);
+opacity: 0.3;
+}
+.diamond {
+width: 8px; height: 8px;
+background: var(–gold);
+transform: rotate(45deg);
+opacity: 0.7;
+flex-shrink: 0;
+}
+
+/* ── PAIN ── */
+.pain-section {
+background: #111111;
+border-top: 1px solid #1E1E1E;
+border-bottom: 1px solid #1E1E1E;
+}
+
+.pain-intro {
+text-align: center;
+font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+font-weight: 300;
+color: #CCCCCC;
+max-width: 680px;
+margin: 0 auto 3rem;
+line-height: 1.8;
+}
+
+.pain-intro em {
+font-style: italic;
+color: #FFFFFF;
+font-size: 1.1em;
+}
+
+.pain-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 1px;
+background: #1E1E1E;
+border: 1px solid #1E1E1E;
+margin-bottom: 3rem;
+}
+
+.pain-item {
+background: #111111;
+padding: 1.8rem;
+display: flex;
+align-items: flex-start;
+gap: 1rem;
+}
+
+.pain-x {
+color: #C0392B;
+font-size: 1.1rem;
+font-weight: 700;
+flex-shrink: 0;
+margin-top: 2px;
+}
+
+.pain-item p {
+font-size: 0.9rem;
+color: #AAAAAA;
+line-height: 1.6;
+}
+
+.pain-item p strong { color: #FFFFFF; }
+
+.highlight-box {
+border: 1px solid rgba(201,168,76,0.3);
+background: rgba(201,168,76,0.04);
+padding: 2.5rem;
+text-align: center;
+}
+
+.highlight-box p {
+font-family: Georgia, ‘Times New Roman’, serif;
+font-style: italic;
+font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+color: #FFFFFF;
+line-height: 1.7;
+}
+
+/* ── WHAT YOU GET ── */
+.get-section { background: #080808; }
+
+.get-intro {
+text-align: center;
+font-size: 1.1rem;
+color: #CCCCCC;
+max-width: 620px;
+margin: 0 auto 3rem;
+line-height: 1.8;
+}
+
+.get-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 1.5rem;
+}
+
+.get-card {
+background: #141414;
+border: 1px solid #1E1E1E;
+padding: 2rem;
+position: relative;
+transition: border-color 0.3s;
+}
+
+.get-card:hover { border-color: rgba(201,168,76,0.4); }
+
+.get-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 3px; height: 100%;
+background: linear-gradient(180deg, var(–gold), transparent);
+}
+
+.get-num {
+font-size: 0.6rem;
+font-weight: 700;
+letter-spacing: 0.3em;
+color: var(–gold);
+margin-bottom: 0.8rem;
+display: block;
+}
+
+.get-card h3 {
+font-family: Georgia, ‘Times New Roman’, serif;
+font-size: 1.15rem;
+font-weight: 700;
+margin-bottom: 0.6rem;
+color: #FFFFFF;
+line-height: 1.3;
+}
+
+.get-card p {
+font-size: 0.85rem;
+color: #AAAAAA;
+line-height: 1.7;
+}
+
+/* ── FOR WHO ── */
+.who-section {
+background: #111111;
+border-top: 1px solid #1E1E1E;
+border-bottom: 1px solid #1E1E1E;
+}
+
+.who-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1rem;
+margin: 3rem 0;
+}
+
+.who-card {
+background: #080808;
+border: 1px solid #1E1E1E;
+padding: 1.5rem;
+text-align: center;
+transition: all 0.3s;
+}
+
+.who-card:hover {
+border-color: var(–gold);
+background: rgba(201,168,76,0.04);
+}
+
+.who-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+
+.who-card h3 {
+font-size: 0.9rem;
+font-weight: 700;
+margin-bottom: 0.4rem;
+color: #FFFFFF;
+}
+
+.who-card p { font-size: 0.78rem; color: #AAAAAA; line-height: 1.5; }
+
+/* ── PROCESS ── */
+.process-section { background: #080808; }
+
+.steps {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 1px;
+background: #1E1E1E;
+border: 1px solid #1E1E1E;
+margin-top: 3rem;
+}
+
+.step {
+background: #080808;
+padding: 2rem;
+text-align: center;
+}
+
+.step-num {
+width: 48px; height: 48px;
+border: 1px solid var(–gold);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 1rem;
+font-size: 1.1rem;
+font-weight: 700;
+color: var(–gold);
+font-family: Georgia, serif;
+}
+
+.step h3 {
+font-family: Georgia, serif;
+font-size: 1rem;
+font-weight: 700;
+margin-bottom: 0.5rem;
+color: #FFFFFF;
+}
+
+.step p { font-size: 0.82rem; color: #AAAAAA; line-height: 1.6; }
+
+/* ── ABOUT ── */
+.about-section {
+background: #111111;
+border-top: 1px solid #1E1E1E;
+border-bottom: 1px solid #1E1E1E;
+}
+
+.about-inner {
+max-width: 700px;
+margin: 0 auto;
+text-align: center;
+}
+
+.about-inner h2 {
+font-family: Georgia, serif;
+font-size: clamp(1.8rem, 4vw, 2.8rem);
+font-weight: 700;
+margin-bottom: 1.5rem;
+color: #FFFFFF;
+}
+
+.about-inner h2 .gold { color: var(–gold); }
+
+.about-inner p {
+font-size: 0.95rem;
+color: #CCCCCC;
+line-height: 1.9;
+margin-bottom: 1rem;
+}
+
+.about-inner p strong { color: #FFFFFF; }
+
+/* ── FINAL CTA ── */
+.cta-section {
+background: #080808;
+text-align: center;
+padding: 7rem 2rem;
+position: relative;
+overflow: hidden;
+}
+
+.cta-section::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 65%);
+pointer-events: none;
+}
+
+.cta-big {
+font-family: Georgia, serif;
+font-size: clamp(2.2rem, 6vw, 5rem);
+font-weight: 900;
+line-height: 1.1;
+margin-bottom: 1.5rem;
+color: #FFFFFF;
+position: relative;
+}
+
+.cta-big .gold { color: var(–gold); }
+
+.cta-sub {
+font-size: 1.05rem;
+color: #CCCCCC;
+max-width: 520px;
+margin: 0 auto 1.5rem;
+line-height: 1.7;
+position: relative;
+}
+
+.cta-price {
+font-size: 0.85rem;
+color: var(–gold);
+letter-spacing: 0.15em;
+font-weight: 600;
+margin-bottom: 2rem;
+position: relative;
+}
+
+/* ── GUARANTEE ── */
+.guarantee {
+background: #141414;
+border-top: 1px solid #1E1E1E;
+padding: 3rem 2rem;
+text-align: center;
+}
+
+.guarantee-inner {
+max-width: 580px;
+margin: 0 auto;
+}
+
+.guarantee-inner span { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+
+.guarantee-inner h3 {
+font-family: Georgia, serif;
+font-size: 1.4rem;
+font-weight: 700;
+margin-bottom: 0.8rem;
+color: #FFFFFF;
+}
+
+.guarantee-inner h3 .gold { color: var(–gold); }
+
+.guarantee-inner p {
+font-size: 0.88rem;
+color: #AAAAAA;
+line-height: 1.7;
+}
+
+/* ── FOOTER ── */
+footer {
+background: #080808;
+border-top: 1px solid #1E1E1E;
+padding: 2rem;
+text-align: center;
+}
+
+.footer-brand {
+font-size: 0.85rem;
+color: var(–gold);
+font-weight: 700;
+letter-spacing: 0.2em;
+margin-bottom: 0.5rem;
+}
+
+footer p { font-size: 0.7rem; color: #444; letter-spacing: 0.1em; }
+
+@media (max-width: 640px) {
+.sticky-bar p { display: none; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- STICKY BAR -->
+
+<div class="sticky-bar" id="stickyBar">
+  <p>Ready to find your <span>AI business path?</span></p>
+  <a href="#book" class="cta-sticky">Book Your Call →</a>
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+  <p class="eyebrow">One Call. Total Clarity.</p>
+  <h1>
+    Discover Exactly How<br>
+    <span class="gold">AI Can Transform</span><br>
+    Your Business
+  </h1>
+  <p class="hero-sub">
+    A private 60–90 minute strategy session where you'll discover <strong>precisely what's possible for YOUR business with AI</strong> — and leave with a clear, personalised roadmap to get there.
+  </p>
+  <div class="price-tag">ONE-TO-ONE · 60–90 MINUTES · £97</div>
+  <a href="#book" class="cta-primary">Book Your AI Roadmap Call →</a>
+  <p class="hero-note">Limited spots available each week</p>
+</section>
+
+<!-- PAIN -->
+
+<section class="pain-section">
+  <div class="container">
+    <p class="section-label">Does this sound like you?</p>
+    <p class="pain-intro">
+      You know AI is changing everything. You know you should be using it. But you're stuck — <em>not knowing where to start or what's actually right for YOU.</em>
+    </p>
+
+```
+<div class="pain-grid">
+  <div class="pain-item">
+    <span class="pain-x">✗</span>
+    <p><strong>You're overwhelmed by AI options</strong> — ChatGPT, Claude, automation tools — but you don't know which ones actually matter for your business</p>
+  </div>
+  <div class="pain-item">
+    <span class="pain-x">✗</span>
+    <p><strong>You've tried AI but got generic results</strong> — it doesn't feel like it's working for YOUR specific situation</p>
+  </div>
+  <div class="pain-item">
+    <span class="pain-x">✗</span>
+    <p><strong>You're not sure what to monetise</strong> — should you use AI to grow your current business or build something completely new?</p>
+  </div>
+  <div class="pain-item">
+    <span class="pain-x">✗</span>
+    <p><strong>You feel left behind</strong> — everyone's talking about making money with AI but nobody's showing you the path that fits YOU</p>
+  </div>
+  <div class="pain-item">
+    <span class="pain-x">✗</span>
+    <p><strong>You're wasting time on the wrong things</strong> — busy with AI tools but not seeing real results in your business or bank account</p>
+  </div>
+  <div class="pain-item">
+    <span class="pain-x">✗</span>
+    <p><strong>You need someone to cut through the noise</strong> — and tell you straight what will actually work for you, right now</p>
+  </div>
+</div>
+
+<div class="highlight-box">
+  <p>"The problem isn't that AI doesn't work for you. The problem is nobody has sat down with you and worked out exactly HOW it should work for you."</p>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+
+<section class="get-section">
+  <div class="container">
+    <p class="section-label">What happens on the call</p>
+    <h2 class="section-title">Your Personal <span class="gold">AI Blueprint</span></h2>
+    <p class="get-intro">This isn't a generic consultation. It's a deep, focused session built entirely around you, your skills, your business, and your goals.</p>
+
+```
+<div class="get-grid">
+  <div class="get-card">
+    <span class="get-num">01</span>
+    <h3>Clarity on Your AI Opportunity</h3>
+    <p>We identify exactly where AI can have the biggest impact in your specific business — no guesswork, no generic advice</p>
+  </div>
+  <div class="get-card">
+    <span class="get-num">02</span>
+    <h3>Your Ideal Business Model</h3>
+    <p>Whether you want to grow what you have or build something new, we map out the right AI-powered model for your skills and lifestyle</p>
+  </div>
+  <div class="get-card">
+    <span class="get-num">03</span>
+    <h3>Your Money-Making Path</h3>
+    <p>Discover the fastest, most realistic route to generating income with AI based on who you are and what you already have</p>
+  </div>
+  <div class="get-card">
+    <span class="get-num">04</span>
+    <h3>Your Personalised Roadmap</h3>
+    <p>You leave with a clear, step-by-step action plan — not a list of ideas, but a real roadmap you can start following immediately</p>
+  </div>
+  <div class="get-card">
+    <span class="get-num">05</span>
+    <h3>The Right Tools for YOU</h3>
+    <p>No more tool overwhelm — you'll know exactly which AI tools to use, how to use them, and which ones to ignore completely</p>
+  </div>
+  <div class="get-card">
+    <span class="get-num">06</span>
+    <h3>Confidence & Direction</h3>
+    <p>Walk away knowing exactly what to do next — with the clarity, confidence and momentum to actually make it happen</p>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="process-section">
+  <div class="container">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Simple. <span class="gold">Powerful. Personal.</span></h2>
+
+```
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <h3>Book Your Spot</h3>
+    <p>Choose your time, pay your £97 session fee, and complete a short pre-call questionnaire so we hit the ground running</p>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <h3>We Meet One-to-One</h3>
+    <p>60–90 minutes, just you and Lisa. Deep, focused, entirely about you and your business</p>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <h3>You Get Your Roadmap</h3>
+    <p>Walk away with total clarity — a personalised AI business roadmap and your next steps mapped out</p>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <h3>You Take Action</h3>
+    <p>No more confusion, no more overwhelm — just clear, confident action towards your AI-powered future</p>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- FOR WHO -->
+
+<section class="who-section">
+  <div class="container">
+    <p class="section-label">This call is for you if...</p>
+    <h2 class="section-title">Built for <span class="gold">Real Business Builders</span></h2>
+
+```
+<div class="who-grid">
+  <div class="who-card">
+    <span class="who-icon">🎯</span>
+    <h3>Coach or Consultant</h3>
+    <p>Ready to use AI to scale your impact and income</p>
+  </div>
+  <div class="who-card">
+    <span class="who-icon">🚀</span>
+    <h3>Entrepreneur</h3>
+    <p>Want to build smarter with AI at the core</p>
+  </div>
+  <div class="who-card">
+    <span class="who-icon">💼</span>
+    <h3>Business Owner</h3>
+    <p>Need clarity on how AI fits into what you already do</p>
+  </div>
+  <div class="who-card">
+    <span class="who-icon">✨</span>
+    <h3>Starting Fresh</h3>
+    <p>Want to build a brand new AI-powered business from scratch</p>
+  </div>
+  <div class="who-card">
+    <span class="who-icon">📚</span>
+    <h3>Course Creator</h3>
+    <p>Ready to use AI to build and sell faster than ever</p>
+  </div>
+  <div class="who-card">
+    <span class="who-icon">💡</span>
+    <h3>Expert or Speaker</h3>
+    <p>Want AI to amplify your authority and reach</p>
+  </div>
+</div>
+
+<div class="highlight-box">
+  <p>You don't need to be technical. You don't need to know anything about AI. You just need to be ready to <em>build something remarkable.</em></p>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about-section">
+  <div class="container">
+    <div class="about-inner">
+      <p class="section-label">Your guide</p>
+      <h2>Meet <span class="gold">Lisa Hamilton-Smith</span></h2>
+      <p>Lisa is an AI educator, business coach, NLP practitioner, and founder of Dream Team AI Academy — on a mission to make AI accessible and genuinely profitable for entrepreneurs, coaches, and business owners who aren't tech people.</p>
+      <p>With a background in NLP (trained with Tony Robbins and Bob Proctor), performance coaching, and over two decades of business building, Lisa doesn't just know AI — <strong>she knows business.</strong> She'll help you see not just what's possible with AI, but what's possible for YOU.</p>
+      <p><strong>This isn't theory. This is a real conversation with someone who has built real businesses and can see your potential clearly.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+
+<section class="cta-section" id="book">
+  <div class="container">
+    <p class="section-label">Your next move</p>
+    <h2 class="cta-big">
+      One call.<br><span class="gold">Total clarity.</span><br>Real results.
+    </h2>
+    <p class="cta-sub">Stop guessing. Stop feeling behind. Get a personalised AI roadmap built specifically for you and your business.</p>
+    <p class="cta-price">ONE-TO-ONE SESSION · 60–90 MINUTES · £97</p>
+    <a href="#" class="cta-primary">Book Your AI Roadmap Call Now →</a>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+
+<div class="guarantee">
+  <div class="guarantee-inner">
+    <span>🛡️</span>
+    <h3>The <span class="gold">Clarity Guarantee</span></h3>
+    <p>If you leave this call without total clarity on your AI business path and a clear roadmap of next steps, I'll follow up with you personally until you do. You will not leave confused.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <p class="footer-brand">DREAM TEAM AI ACADEMY™</p>
+  <p>AI Roadmap Call · Lisa Hamilton-Smith · All Rights Reserved</p>
+</footer>
+
+<script>
+  const stickyBar = document.getElementById('stickyBar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>
